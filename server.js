@@ -1,7 +1,6 @@
 const http = require('http');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-
 dotenv.config();
 
 const app = require('./app');
@@ -11,11 +10,13 @@ const MONGO_URI = process.env.MONGO_URI;
 
 const server = http.createServer(app);
 
+
 mongoose.connect(MONGO_URI)
   .then(() => {
     console.log('MongoDB connection successful');
-    server.listen(PORT, '0.0.0.0', () => {
-      console.log(`Blog API live on http://localhost:${PORT}`);
+    
+    server.listen(PORT, () => {
+      console.log(`Blog API live on port ${PORT}`);
     });
   })
   .catch((error) => {
