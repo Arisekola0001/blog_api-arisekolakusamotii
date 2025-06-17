@@ -16,7 +16,7 @@ app.use('/api/blogs', blogRoutes);
 
 
 app.use('*', (req, res) => {
-  res.status(404).json({ message: 'Route not found ' });
+  res.status(404).json({ message: 'welcome to the blogwell API by Arisekola Kusamotu ' });
 });
 
 module.exports = app;
