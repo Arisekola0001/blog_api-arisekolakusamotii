@@ -1,6 +1,7 @@
 const http = require('http');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+
 dotenv.config();
 
 const app = require('./app');
@@ -13,12 +14,11 @@ const server = http.createServer(app);
 mongoose.connect(MONGO_URI)
   .then(() => {
     console.log('MongoDB connection successful');
-
     server.listen(PORT, '0.0.0.0', () => {
-      console.log(` Blog API live on http://localhost:${PORT}`);
+      console.log(`Blog API live on http://localhost:${PORT}`);
     });
   })
   .catch((error) => {
-    console.error(' MongoDB connection failed:', error.message);
-    process.exit(1); 
+    console.error('MongoDB connection failed:', error.message);
+    process.exit(1);
   });
